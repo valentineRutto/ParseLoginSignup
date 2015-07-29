@@ -31,5 +31,4 @@ dependencies {
     compile 'com.github.paolorotolo:appintro:3.1.0'
     compile 'com.facebook.android:facebook-android-sdk:4.1.0'
 
-
 }
