@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-
 import com.github.paolorotolo.appintro.AppIntro;
 import com.github.paolorotolo.appintro.AppIntroFragment;
 
@@ -14,8 +13,10 @@ import com.github.paolorotolo.appintro.AppIntroFragment;
 public class MyIntro extends AppIntro {
     @Override
     public void init(Bundle savedInstanceState){
-        addSlide(AppIntroFragment.newInstance("slide1", getString(R.string.des1), R.drawable.icon, R.color.abc_background_cache_hint_selector_material_light));
-//        addSlide(second_fragment);
+        addSlide(AppIntroFragment.newInstance("inTOUCH", getString(R.string.des1), R.drawable.icon, R.color.abc_background_cache_hint_selector_material_light));
+        addSlide(AppIntroFragment.newInstance("naVIGATION", getString(R.string.des2), R.drawable.icon, R.color.abc_background_cache_hint_selector_material_light));
+
+// addSlide(second_fragment);
         setBarColor(Color.parseColor("#3F51B5"));
         setSeparatorColor(Color.parseColor("#2196F3"));
         showSkipButton(false);
