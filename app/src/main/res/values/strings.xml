@@ -6,4 +6,5 @@
     <string name="title_activity_my_intro">MyIntro</string>
     <string name="des1"> login or signup so as to access all your social networks</string>
     <string name="des2">select your preffered social network</string>
+    <string name="title_activity_camera">Camera</string>
 </resources>
