@@ -7,4 +7,5 @@
     <string name="des1"> login or signup so as to access all your social networks</string>
     <string name="des2">select your preffered social network</string>
     <string name="title_activity_camera">Camera</string>
+    <string name="title_activity_fab">Fab</string>
 </resources>
