@@ -1,6 +1,8 @@
 package com.valentine.parseloginsignup;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -55,6 +57,14 @@ ImageView mImageView;
                 startActivityForResult(i, ImageIntentHandler.REQUEST_GALLERY);
             }
         });
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        ImageIntentHandler intentHandler = new ImageIntentHandler(MainActivity.this, mImagePair)
+                        .folder("inTOUCH")
+                        .sizeDp(200);
+        intentHandler.handleIntent(requestCode, resultCode, data);
     }
 
     @Override
