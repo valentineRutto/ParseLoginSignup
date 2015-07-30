@@ -1,17 +1,52 @@
 package com.valentine.parseloginsignup;
 
+import android.content.Intent;
+import android.media.Image;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.hs.image.ImageIntentHandler;
+import com.hs.image.ImageUtils;
+
+import java.io.File;
 
 
 public class MainActivity extends ActionBarActivity {
+ImageView mImageView;
+    Button mButtonCapture;
+    Button mButtonPick;
+
+    ImageIntentHandler.ImagePair mImagePair;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mImageView = (ImageView) findViewById(R.id.imageView);
+        mButtonCapture = (Button) findViewById(R.id.button_capture);
+        mButtonPick = (Button) findViewById(R.id.button_pick);
+        mButtonCapture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                File f = ImageUtils.createImageFile(ImageUtils.getPackageName(MainActivity.this));
+                if ((f != null) && f.exists()) {
+                    mImagePair = new ImageIntentHandler.ImagePair(mImageView, f.getAbsolutePath());
+                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+                    startActivityForResult(takePictureIntent, ImageIntentHandler.REQUEST_CAPTURE);
+                } else {
+                    Toast.makeText(MainActivity.this, "Storage Error", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     @Override
