@@ -2,9 +2,6 @@ package com.valentine.parseloginsignup;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
@@ -18,6 +15,7 @@ import android.widget.Toast;
 
 import com.hs.image.ImageIntentHandler;
 import com.hs.image.ImageUtils;
+
 
 import java.io.File;
 
@@ -48,6 +46,7 @@ ImageView mImageView;
                 } else {
                     Toast.makeText(MainActivity.this, "Storage Error", Toast.LENGTH_LONG).show();
                 }
+
             }
         });
         mButtonPick.setOnClickListener(new View.OnClickListener() {
