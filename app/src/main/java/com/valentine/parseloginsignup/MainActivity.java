@@ -22,7 +22,7 @@ public class MainActivity extends ActionBarActivity {
 ImageView mImageView;
     Button mButtonCapture;
     Button mButtonPick;
-
+Button mButtonShare;
     ImageIntentHandler.ImagePair mImagePair;
 
     @Override
@@ -32,6 +32,7 @@ ImageView mImageView;
         mImageView = (ImageView) findViewById(R.id.imageView);
         mButtonCapture = (Button) findViewById(R.id.button_capture);
         mButtonPick = (Button) findViewById(R.id.button_pick);
+        mButtonShare = (Button) findViewById(R.id.button);
         mButtonCapture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,14 +56,23 @@ ImageView mImageView;
                 startActivityForResult(i, ImageIntentHandler.REQUEST_GALLERY);
             }
         });
+        mButtonShare.setOnClickListener(new View.OnClickListener()  {
+            public void onClick(View v) {
+                shareIt();
+            }
+        });
+    }
+
+    private void shareIt() {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         ImageIntentHandler intentHandler = new ImageIntentHandler(MainActivity.this, mImagePair)
-                        .folder("inTOUCH")
+                .folder("inTOUCH")
                         .sizeDp(200);
         intentHandler.handleIntent(requestCode, resultCode, data);
+
     }
 
     @Override
