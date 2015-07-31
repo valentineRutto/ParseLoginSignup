@@ -1,11 +1,10 @@
 package com.valentine.parseloginsignup;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +14,6 @@ import android.widget.Toast;
 
 import com.hs.image.ImageIntentHandler;
 import com.hs.image.ImageUtils;
-
 
 import java.io.File;
 

@@ -1,4 +1,4 @@
-package com.valentine.parseloginsignup;
+/**package com.valentine.parseloginsignup;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -9,6 +9,7 @@ import android.view.animation.Interpolator;
 import android.view.animation.ScaleAnimation;
 
 import com.gordonwong.materialsheetfab.AnimatedFab;
+import com.valentine.parseloginsignup.FloatingActionButton;
 
 public class Fab extends FloatingActionButton implements AnimatedFab {
     private static final int FAB_ANIM_DURATION = 200;
@@ -73,6 +74,12 @@ public class Fab extends FloatingActionButton implements AnimatedFab {
         setVisibility(View.INVISIBLE);
     }
 
+
+
+    private int getVisibility() {
+        return 0;
+    }
+
     private void setTranslation(float translationX, float translationY) {
         animate().setInterpolator(getInterpolator()).setDuration(FAB_ANIM_DURATION)
                 .translationX(translationX).translationY(translationY);
@@ -82,4 +89,4 @@ public class Fab extends FloatingActionButton implements AnimatedFab {
         return AnimationUtils.loadInterpolator(getContext(), R.interpolator.msf_interpolator);
     }
 
-}
+}**/
