@@ -15,9 +15,9 @@ import com.github.paolorotolo.appintro.AppIntroFragment;
 public class MyIntro extends AppIntro {
     @Override
     public void init(Bundle savedInstanceState){
-        addSlide(AppIntroFragment.newInstance("inTOUCH", getString(R.string.des1), R.drawable.logo, R.color.abc_background_cache_hint_selector_material_light));
-        addSlide(AppIntroFragment.newInstance("inTOUCH", getString(R.string.des2), R.drawable.logo, R.color.abc_background_cache_hint_selector_material_light));
-        addSlide(AppIntroFragment.newInstance("inTOUCH", getString(R.string.des3), R.drawable.logo, R.color.abc_background_cache_hint_selector_material_light));
+        addSlide(AppIntroFragment.newInstance("inTOUCH", getString(R.string.des1), R.drawable.buttons, R.color.abc_background_cache_hint_selector_material_light));
+        addSlide(AppIntroFragment.newInstance("inTOUCH", getString(R.string.des2), R.drawable.share, R.color.abc_background_cache_hint_selector_material_light));
+        addSlide(AppIntroFragment.newInstance("inTOUCH", getString(R.string.des3), R.drawable.done, R.color.abc_background_cache_hint_selector_material_light));
 
 // addSlide(second_fragment);
         setBarColor(Color.parseColor("#3F51B5"));
