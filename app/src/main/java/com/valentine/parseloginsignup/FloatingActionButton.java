@@ -8,5 +8,6 @@ import android.util.AttributeSet;
  */
 public class FloatingActionButton {
     public FloatingActionButton(Context context, AttributeSet attrs) {
+
     }
 }
