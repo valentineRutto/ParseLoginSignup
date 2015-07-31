@@ -65,6 +65,11 @@ Button mButtonShare;
 
     private void shareIt() {
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("image/jpeg");
+        String shareBody = "caption";
+        //sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+        startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -3,10 +3,13 @@
 
     <string name="hello_world">WAIT FOR IT....||||||||.....inTOUCH COMING SOON</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_my_intro">MyIntro</string>
-    <string name="des1"> login or signup so as to access all your social networks</string>
-    <string name="des2">select your preffered social network</string>
+    <string name="title_activity_my_intro">inTOUCH</string>
+    <string name="des1">click pick-button to pick image from your gallery or capture -button to capture</string>
+    <string name="des2">select where you wish to share the image to.</string>
+    <string name="des3">press done to start using the app</string>
+
     <string name="title_activity_camera">Camera</string>
     <string name="title_activity_fab">Fab</string>
     <string name="title_activity_dimoveraly">Dimoveraly</string>
+    <string name="skip">app intro skipped</string>
 </resources>
