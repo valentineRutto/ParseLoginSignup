@@ -64,6 +64,7 @@ Button mButtonShare;
     }
 
     private void shareIt() {
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
