@@ -1,6 +1,8 @@
 package com.valentine.parseloginsignup;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,6 +18,7 @@ import com.hs.image.ImageIntentHandler;
 import com.hs.image.ImageUtils;
 
 import java.io.File;
+import java.io.OutputStream;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -23,6 +26,7 @@ ImageView mImageView;
     Button mButtonCapture;
     Button mButtonPick;
 Button mButtonShare;
+    Bitmap mBitmap;
     ImageIntentHandler.ImagePair mImagePair;
 
     @Override
@@ -42,6 +46,8 @@ Button mButtonShare;
                     mImagePair = new ImageIntentHandler.ImagePair(mImageView, f.getAbsolutePath());
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
                     startActivityForResult(takePictureIntent, ImageIntentHandler.REQUEST_CAPTURE);
+
+
                 } else {
                     Toast.makeText(MainActivity.this, "Storage Error", Toast.LENGTH_LONG).show();
                 }
@@ -65,11 +71,29 @@ Button mButtonShare;
 
     private void shareIt() {
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        Bitmap icon = mBitmap;
         sharingIntent.setType("image/jpeg");
+
+        ContentValues values = new ContentValues();
+        values.put(MediaStore.Images.Media.TITLE, "title");
+        values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
+        Uri uri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                values);
+        OutputStream outstream;
+        try {
+            outstream = getContentResolver().openOutputStream(uri);
+            icon.compress(Bitmap.CompressFormat.JPEG, 100, outstream);
+            outstream.close();
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+
+        sharingIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        startActivity(Intent.createChooser(sharingIntent, "Share Image"));
+        //sharingIntent.setType("image/jpeg");
         String shareBody = "caption";
-        //sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
         sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
-        startActivity(Intent.createChooser(sharingIntent, "Share via"));
+        //startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -78,6 +102,7 @@ Button mButtonShare;
                 .folder("inTOUCH")
                         .sizeDp(200);
         intentHandler.handleIntent(requestCode, resultCode, data);
+
 
     }
 
