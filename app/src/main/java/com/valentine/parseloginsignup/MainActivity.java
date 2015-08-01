@@ -19,6 +19,8 @@ import com.hs.image.ImageUtils;
 
 import java.io.File;
 import java.io.OutputStream;
+import android.widget.ImageButton;
+import android.widget.Toolbar;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -28,7 +30,8 @@ ImageView mImageView;
 Button mButtonShare;
     Bitmap mBitmap;
     ImageIntentHandler.ImagePair mImagePair;
-
+Toolbar toolbar;
+    ImageButton FAB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +70,22 @@ Button mButtonShare;
                 shareIt();
             }
         });
+
+        toolbar=(Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        FAB=(ImageButton) findViewById(R.id.imageButton);
+        FAB.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this,"inTOUCH",Toast.LENGTH_SHORT);
+            }
+        });
+
+
     }
+
+
 
     private void shareIt() {
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
